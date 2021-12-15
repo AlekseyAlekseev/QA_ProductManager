@@ -8,7 +8,6 @@ import ru.netology.repository.ProductRepository;
 public class ProductManager {
 
     private ProductRepository repository;
-    //private Book book;
 
     public ProductManager(ProductRepository repository) {
         this.repository = repository;
@@ -25,6 +24,7 @@ public class ProductManager {
             if (matches(product, text)) {
                 Product[] tmp = new Product[result.length + 1];
                 // используйте System.arraycopy, чтобы скопировать всё из result в tmp
+                System.arraycopy(result, 0, tmp, 0, result.length);
                 tmp[tmp.length - 1] = product;
                 result = tmp;
             }
