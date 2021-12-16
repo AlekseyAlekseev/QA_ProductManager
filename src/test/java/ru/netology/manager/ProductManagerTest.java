@@ -37,10 +37,6 @@ class ProductManagerTest {
         Product[] returned = {iphone12Pro, iphone11};
         doReturn(returned).when(repository).findAll();
 
-        for (Product product : returned) {
-            manager.add(product);
-        }
-
         Product[] expected = {iphone12Pro, iphone11};
         Product[] actual = manager.searchBy("Apple");
 
@@ -52,10 +48,6 @@ class ProductManagerTest {
     void shouldPhoneSearchName() {
         Product[] returned = {iphoneXR, iphone11, iphone12Pro};
         doReturn(returned).when(repository).findAll();
-
-        for (Product product : returned) {
-            manager.add(product);
-        }
 
         Product[] expected = {iphoneXR, iphone11, iphone12Pro};
         Product[] actual = manager.searchBy("Iphone");
@@ -70,9 +62,6 @@ class ProductManagerTest {
         Product[] returned = {book2, book3, book4, book5};
         doReturn(returned).when(repository).findAll();
 
-        for (Product product : returned) {
-            manager.add(product);
-        }
         Product[] expected = {book2, book3, book4, book5};
         Product[] actual = manager.searchBy("Лев Толстой");
 
@@ -84,10 +73,6 @@ class ProductManagerTest {
     void shouldBookSearchName() {
         Product[] returned = {book2, book3};
         doReturn(returned).when(repository).findAll();
-
-        for (Product product : returned) {
-            manager.add(product);
-        }
 
         Product[] expected = {book2, book3};
         Product[] actual = manager.searchBy("Война и мир");
@@ -107,7 +92,6 @@ class ProductManagerTest {
 
         assertArrayEquals(expected, actual);
         verify(repository).findAll();
-
     }
 
     @Test
@@ -120,7 +104,6 @@ class ProductManagerTest {
 
         assertArrayEquals(expected, actual);
         verify(repository).findAll();
-
     }
 
     @Test
@@ -133,6 +116,5 @@ class ProductManagerTest {
 
         assertArrayEquals(expected, actual);
         verify(repository).findAll();
-
     }
 }
